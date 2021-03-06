@@ -48,6 +48,10 @@ namespace GameDataParser
                 new ChatStickerParser(resources),
                 new ShopParser(),
                 new ItemExchangeScrollParser(resources),
+                new PremiumClubPackageParser(resources),
+                new PremiumClubDailyBenefitParser(resources),
+                new InstrumentInfoParser(resources),
+                new InstrumentCategoryInfoParser(resources),
             };
 
             IEnumerable<Task> tasks = exporters.Select(exporter => Task.Run(() => exporter.Export()));
