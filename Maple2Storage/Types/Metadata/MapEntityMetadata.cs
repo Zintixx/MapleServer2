@@ -27,6 +27,8 @@ namespace Maple2Storage.Types.Metadata
         public readonly List<MapInteractActor> InteractActors;
         [XmlElement(Order = 9)]
         public readonly List<MapInteractMesh> InteractMeshes;
+        [XmlElement(Order = 10)]
+        public CoordS HealingSpot;
 
         // Required for deserialization
         public MapEntityMetadata()
@@ -341,18 +343,21 @@ namespace Maple2Storage.Types.Metadata
         [XmlElement(Order = 3)]
         public readonly InteractActorType Type;
         [XmlElement(Order = 4)]
-        public readonly int Id;
+        public readonly int InteractId;
+        [XmlElement(Order = 5)]
+        public readonly int RecipeId;
 
         public MapInteractActor() { }
-        public MapInteractActor(string uuid, string name, InteractActorType type, int id)
+        public MapInteractActor(string uuid, string name, InteractActorType type, int interactId, int recipeId = 0)
         {
             Uuid = uuid;
             Name = name;
             Type = type;
-            Id = id;
+            InteractId = interactId;
+            RecipeId = recipeId;
         }
         public override string ToString() =>
-            $"MapInteractActor(UUID:{Uuid},Name:{Name},Type:{Type},Id:{Id})";
+            $"MapInteractActor(UUID:{Uuid},Name:{Name},Type:{Type},InteractId:{InteractId},RecipeId:{RecipeId})";
     }
 
     [XmlType]
