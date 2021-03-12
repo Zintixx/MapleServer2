@@ -13,6 +13,8 @@ namespace MapleServer2.Servers.Game
         public static readonly ClubManager ClubManager = new();
         public static readonly GuildManager GuildManager = new();
         public static readonly GroupChatManager GroupChatManager = new();
+        public static readonly HongBaoManager HongBaoManager = new();
+        public static readonly BuddyManager BuddyManager = new();
 
         public GameServer(PacketRouter<GameSession> router, ILogger<GameServer> logger, IComponentContext context) :
             base(router, logger, context)
